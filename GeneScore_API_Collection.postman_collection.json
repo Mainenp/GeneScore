@@ -1,0 +1,202 @@
+{
+  "info": {
+    "name": "GeneScore API Collection",
+    "description": "Complete API testing collection for GeneScore backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Data Import",
+      "item": [
+        {
+          "name": "Import Gene Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/import/genes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "import", "genes"]
+            },
+            "description": "Trigger gene data import from CSV and HGNC files. This may take 1-5 minutes depending on data size."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gene Search",
+      "item": [
+        {
+          "name": "Search by Keyword - TP53",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gene/search?keyword=TP53",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gene", "search"],
+              "query": [
+                {
+                  "key": "keyword",
+                  "value": "TP53"
+                }
+              ]
+            },
+            "description": "Search for genes containing 'TP53' in symbol or full name"
+          }
+        },
+        {
+          "name": "Search by Keyword - Tumor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gene/search?keyword=tumor",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gene", "search"],
+              "query": [
+                {
+                  "key": "keyword",
+                  "value": "tumor"
+                }
+              ]
+            },
+            "description": "Search for genes containing 'tumor' in full name"
+          }
+        },
+        {
+          "name": "Search by Keyword - BRCA",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gene/search?keyword=BRCA",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gene", "search"],
+              "query": [
+                {
+                  "key": "keyword",
+                  "value": "BRCA"
+                }
+              ]
+            },
+            "description": "Search for genes containing 'BRCA' in symbol"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gene Details",
+      "item": [
+        {
+          "name": "Get TP53 Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gene/detail/TP53",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gene", "detail", "TP53"]
+            },
+            "description": "Get complete details for TP53 including basic info, 3D structure, omics, network, drugs, and pathways"
+          }
+        },
+        {
+          "name": "Get BRCA1 Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gene/detail/BRCA1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gene", "detail", "BRCA1"]
+            },
+            "description": "Get complete details for BRCA1"
+          }
+        },
+        {
+          "name": "Get EGFR Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gene/detail/EGFR",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gene", "detail", "EGFR"]
+            },
+            "description": "Get complete details for EGFR"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gene Utilities",
+      "item": [
+        {
+          "name": "Get Total Gene Count",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gene/count",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gene", "count"]
+            },
+            "description": "Get total number of genes in database"
+          }
+        },
+        {
+          "name": "Check Gene Exists - TP53",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gene/exists/TP53",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gene", "exists", "TP53"]
+            },
+            "description": "Check if TP53 exists in database"
+          }
+        },
+        {
+          "name": "Check Gene Exists - NONEXISTENT",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gene/exists/NONEXISTENT",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gene", "exists", "NONEXISTENT"]
+            },
+            "description": "Check if NONEXISTENT gene exists (should return false)"
+          }
+        }
+      ]
+    }
+  ]
+}
